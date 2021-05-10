@@ -1,7 +1,10 @@
 package practicumopdracht;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import practicumopdracht.Controllers.SubjectController;
+import practicumopdracht.Views.SubjectView;
 
 public class MainApplication extends Application {
 
@@ -14,9 +17,15 @@ public class MainApplication extends Application {
             return;
         }
 
+        SubjectController subjectController = new SubjectController();
+        SubjectView subjectView = subjectController.GetView();
+
+        Scene scene = new Scene(
+                subjectView.getRoot()
+        );
+
         stage.setTitle(String.format("Practicumopdracht OOP2 - %s", Main.studentNaam));
-        stage.setWidth(640);
-        stage.setHeight(480);
+        stage.setScene(scene);
         stage.show();
     }
 }
